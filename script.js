@@ -140,16 +140,19 @@ function parseGuess(guess) {
 	let alphabet = ["a", "b", "c", "d", "e", "f", "g"];
 
 	if ((guess === null) || (guess.length !== 2)) {
-		alert("Oops! Please enter a letter and a number on the board.");
+		// alert("Введите букву и цифру координат");
+		view.displayMessage("Введите букву и цифру координат");
 	} else {
 		firstChar = guess.charAt(0);
 		let row = alphabet.indexOf(firstChar);
 		let column = guess.charAt(1);
 
 		if (isNaN(row) || isNaN(column)) {
-			alert("Oops! That isn't on the board.");
+			// alert("Введите букву и цифру координат");
+			view.displayMessage("Введите букву и цифру координат");
 		} else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
-			alert("Oops! That is off the board.");
+			// alert("Введите букву и цифру координат");
+			view.displayMessage("Введите букву и цифру координат");
 		} else {
 			return row + column;
 		}
@@ -178,7 +181,7 @@ function handleKeyPress(e) {
 
 function handleFireButton() {
 	let guessInput = document.getElementById("guessInput");
-	let guess = guessInput.value;
+	let guess = guessInput.value.toLowerCase();
 	controller.processGuesses(guess);
 
 	guessInput.value = "";
