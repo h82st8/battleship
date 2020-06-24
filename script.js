@@ -128,7 +128,7 @@ let controller = {
 			this.guesses++;
 			let hit = model.fire(location);
 			if (hit && model.shipsSunk === model.numShips) {
-				view.displayMessage("Весь флот потоплен за " + this.guesses + " попыток");
+				view.displayMessage("Флот потоплен за " + this.guesses + " выстрелов");
 			}
 		}
 	}
@@ -169,22 +169,36 @@ function init() {
 	guessInput.onkeypress = handleKeyPress;
 
 	model.generateShipLocations();
-}
 
-function handleKeyPress(e) {
-	let fireButton = document.getElementById("fireButton");
-	if (e.keyCode === 13) {
-		fireButton.click();
-		return false;
+	for (let i = 0; i < document.querySelectorAll(".coords").length; i++) {
+		document.querySelectorAll(".coords")[i].addEventListener("click", function () {
+			guessInput.value = guessInput.value + this.innerHTML;
+		});
+	}
+
+	function handleKeyPress(e) {
+		let fireButton = document.getElementById("fireButton");
+		if (e.keyCode === 13) {
+			fireButton.click();
+			return false;
+		}
+	}
+
+	function handleFireButton() {
+		let guessInput = document.getElementById("guessInput");
+
+		let guess = guessInput.value.toLowerCase();
+
+		controller.processGuesses(guess);
+
+		guessInput.value = "";
 	}
 }
 
-function handleFireButton() {
-	let guessInput = document.getElementById("guessInput");
-	let guess = guessInput.value.toLowerCase();
-	controller.processGuesses(guess);
-
-	guessInput.value = "";
-}
-
 window.onload = init;
+
+// for (let i = 0; i < document.querySelectorAll(".coords").length; i++) {
+// 	document.querySelectorAll(".coords")[i].addEventListener("click", function () {
+// 		guessInput.value = guessInput.value + this.innerHTML;
+// 	});
+// }
