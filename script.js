@@ -48,10 +48,11 @@ let model = {
 			if (index >= 0) {
 				ship.hits[index] = "hit";
 				view.displayHit(guess);
-				view.displayMessage("Попал!");
+				view.displayMessage("Попадание!");
 				if (this.isSunk(ship)) {
 					view.displayMessage("Корабль потоплен!");
 					this.shipsSunk++;
+					document.querySelector(".count").innerHTML = (+this.numShips) - (+this.shipsSunk);
 				}
 				return true;
 			}
@@ -79,7 +80,10 @@ let model = {
 			this.ships[i].locations = locations;
 		}
 		console.log("Ships array: ");
-		console.log(this.ships);
+
+		for (let i = 0; i < this.ships.length; i++) {
+			console.log(this.ships[i].locations);
+		}
 	},
 
 	generateShip: function () {
@@ -114,6 +118,74 @@ let model = {
 				}
 			}
 		}
+		// ----------------Соседние клетки-----------------
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] + 1)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] - 1)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] + 10)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] - 10)) >= 0) {
+					return true;
+				}
+			}
+		}
+
+		// --------------Диагональные клетки----------------
+
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] + 9)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] - 9)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] + 11)) >= 0) {
+					return true;
+				}
+			}
+		}
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(String(+locations[j] - 11)) >= 0) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 };
@@ -129,6 +201,7 @@ let controller = {
 			let hit = model.fire(location);
 			if (hit && model.shipsSunk === model.numShips) {
 				view.displayMessage("Флот потоплен за " + this.guesses + " выстрелов");
+				document.querySelector("#fireButton").setAttribute('disabled', true);
 			}
 		}
 	}
@@ -176,6 +249,8 @@ function init() {
 		});
 	}
 
+	document.querySelector(".count").innerHTML = model.numShips;
+
 	function handleKeyPress(e) {
 		let fireButton = document.getElementById("fireButton");
 		if (e.keyCode === 13) {
@@ -196,9 +271,3 @@ function init() {
 }
 
 window.onload = init;
-
-// for (let i = 0; i < document.querySelectorAll(".coords").length; i++) {
-// 	document.querySelectorAll(".coords")[i].addEventListener("click", function () {
-// 		guessInput.value = guessInput.value + this.innerHTML;
-// 	});
-// }

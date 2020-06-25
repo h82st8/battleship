@@ -105,13 +105,93 @@ form input {
 	border: 1px solid rgb(82, 175, 19);
 }
 
+.count {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-end;
+	font-family: "anonymous", monospace;
+	background-color: rgba(82, 175, 19, 0.4);
+	color: rgb(82, 175, 19);
+}
+
+@media (min-width: 701px) {
+	.count {
+		align-items: center;
+	}
+}
+
+.count::before {
+	position: absolute;
+	content: 'флот:';
+	top: 0px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	width: fit-content;
+	font-size: 13px;
+}
+
+@media (min-width: 701px) {
+	.count::before {
+		font-size: 18px;
+	}
+}
+
 .coords {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	font-family: "anonymous", monospace;
 	color: rgb(82, 175, 19);
 }
+
+@media (min-width: 375px) {
+	.coords {
+		font-size: 20px;
+	}
+}
+
+.coords:hover {
+	background-color: rgba(82, 175, 19, 0.6);
+}
+
+/* .coords_hor {
+	position: relative;
+}
+
+.coords_hor::before {
+	position: absolute;
+	content: '0';
+	top: 5px;
+	left: 5px;
+}
+
+.coords_hor:nth-child(9)::before {
+	content: '1';
+}
+
+.coords_hor:nth-child(17)::before {
+	content: '2';
+}
+
+.coords_hor:nth-child(25)::before {
+	content: '3';
+}
+
+.coords_hor:nth-child(33)::before {
+	content: '4';
+}
+
+.coords_hor:nth-child(41)::before {
+	content: '5';
+}
+
+.coords_hor:nth-child(49)::before {
+	content: '6';
+} */
 
 .hit {
 	background-image: url(../images/ship.png);
