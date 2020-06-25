@@ -6,12 +6,12 @@ let view = {
 	displayHit: function (location) {
 		let cell = document.getElementById(location);
 		// cell.setAttribute("class", "hit");
-		cell.classList.add("hit");
+		cell.classList.add("hit", "animated", "flash");
 	},
 	displayMiss: function (location) {
 		let cell = document.getElementById(location);
 		// cell.setAttribute("class", "miss");
-		cell.classList.add("miss");
+		cell.classList.add("miss", "animated", "flash");
 	}
 };
 
