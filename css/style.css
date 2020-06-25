@@ -139,11 +139,11 @@ form input {
 
 @media (max-width: 700px) {
 	#guessInput {
-		padding: 5px 2px;
+		padding: 10px 2px;
 	}
 
 	#fireButton {
-		padding: 5px 6px;
+		padding: 10px 6px;
 	}
 }
 
