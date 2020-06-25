@@ -7,8 +7,67 @@
 }
 
 .body {
+	position: relative;
 	background-color: #000000;
 	padding: 0 20px;
+	font-family: "anonymous", monospace;
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.flex_center {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal__wrap {
+	position: absolute;
+	content: '';
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 0 20px;
+	background-color: #000;
+}
+
+.modal__inner {
+	border: 1px double rgb(82, 175, 19);
+	padding: 20px;
+	box-sizing: border-box;
+	/* width: 80%;
+	height: 80%; */
+}
+
+@media (min-width: 700px) {
+	.modal__inner {
+		width: 60%;
+	}
+}
+
+.modal__txt {
+	text-align: center;
+	color: rgb(82, 175, 19);
+	font-size: 18px;
+}
+
+.modal__button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	border: 1px solid rgb(82, 175, 19);
+	background-color: #000;
+	color: rgb(82, 175, 19);
+	font-size: 18px;
+}
+
+.modal__button:hover {
+	background-color: rgba(82, 175, 19, 0.5);
 }
 
 @media (max-width: 700px) {
@@ -30,8 +89,6 @@
 }
 
 .dashboard {
-	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	padding-top: 20px;
 	width: 550px;
@@ -64,12 +121,12 @@
 form {
 	padding: 5px;
 	background-color: rgb(83, 175, 19);
-	font-family: "anonymous", monospace;
 }
 
 @media (max-width: 700px) {
 	form {
 		order: 1;
+		padding: 3px 5px;
 		width: fit-content;
 	}
 }
@@ -78,6 +135,16 @@ form input {
 	background-color: rgb(152, 207, 113);
 	border-color: rgb(83, 175, 19);
 	font-size: 16px;
+}
+
+@media (max-width: 700px) {
+	#guessInput {
+		padding: 5px 2px;
+	}
+
+	#fireButton {
+		padding: 5px 6px;
+	}
 }
 
 .cells__wrap {
@@ -95,7 +162,6 @@ form input {
 		grid-template-columns: repeat(8, 1fr);
 		grid-template-rows: repeat(8, 1fr);
 		grid-gap: 1px;
-		padding-top: 20px;
 		width: 100%;
 		height: 100vw;
 	}
@@ -107,11 +173,8 @@ form input {
 
 .count {
 	position: relative;
-	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-end;
-	font-family: "anonymous", monospace;
 	background-color: rgba(82, 175, 19, 0.4);
 	color: rgb(82, 175, 19);
 }
@@ -140,11 +203,6 @@ form input {
 }
 
 .coords {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	font-family: "anonymous", monospace;
 	color: rgb(82, 175, 19);
 }
 

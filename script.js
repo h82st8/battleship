@@ -261,13 +261,14 @@ function init() {
 
 	function handleFireButton() {
 		let guessInput = document.getElementById("guessInput");
-
 		let guess = guessInput.value.toLowerCase();
-
 		controller.processGuesses(guess);
-
 		guessInput.value = "";
 	}
+
+	document.querySelector(".modal__button").addEventListener("click", function () {
+		document.querySelector(".modal__wrap").style.display = "none";
+	});
 }
 
 window.onload = init;

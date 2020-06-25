@@ -12,7 +12,7 @@
 
 <body class="body">
 	<div id="board">
-		<div class="dashboard">
+		<div class="dashboard flex">
 			<div id="messageArea"></div>
 
 			<form>
@@ -22,16 +22,16 @@
 		</div>
 
 		<div class="cells__wrap">
-			<div class="cell count"></div>
-			<div class="coords_vert coords cell">0</div>
-			<div class="coords_vert coords cell">1</div>
-			<div class="coords_vert coords cell">2</div>
-			<div class="coords_vert coords cell">3</div>
-			<div class="coords_vert coords cell">4</div>
-			<div class="coords_vert coords cell">5</div>
-			<div class="coords_vert coords cell">6</div>
+			<div class="cell count flex"></div>
+			<div class="coords flex_center_vert coords flex_center cell">0</div>
+			<div class="coords flex_center_vert coords flex_center cell">1</div>
+			<div class="coords flex_center_vert coords flex_center cell">2</div>
+			<div class="coords flex_center_vert coords flex_center cell">3</div>
+			<div class="coords flex_center_vert coords flex_center cell">4</div>
+			<div class="coords flex_center_vert coords flex_center cell">5</div>
+			<div class="coords flex_center_vert coords flex_center cell">6</div>
 
-			<div class="coords_hor coords cell">a</div>
+			<div class="coords flex_center_hor coords flex_center cell">a</div>
 			<div class="cell" id="00"></div>
 			<div class="cell" id="01"></div>
 			<div class="cell" id="02"></div>
@@ -40,7 +40,7 @@
 			<div class="cell" id="05"></div>
 			<div class="cell" id="06"></div>
 
-			<div class="coords_hor coords cell">b</div>
+			<div class="coords flex_center_hor coords flex_center cell">b</div>
 			<div class="cell" id="10"></div>
 			<div class="cell" id="11"></div>
 			<div class="cell" id="12"></div>
@@ -49,7 +49,7 @@
 			<div class="cell" id="15"></div>
 			<div class="cell" id="16"></div>
 
-			<div class="coords_hor coords cell">c</div>
+			<div class="coords flex_center_hor coords flex_center cell">c</div>
 			<div class="cell" id="20"></div>
 			<div class="cell" id="21"></div>
 			<div class="cell" id="22"></div>
@@ -58,7 +58,7 @@
 			<div class="cell" id="25"></div>
 			<div class="cell" id="26"></div>
 
-			<div class="coords_hor coords cell">d</div>
+			<div class="coords flex_center_hor coords flex_center cell">d</div>
 			<div class="cell" id="30"></div>
 			<div class="cell" id="31"></div>
 			<div class="cell" id="32"></div>
@@ -67,7 +67,7 @@
 			<div class="cell" id="35"></div>
 			<div class="cell" id="36"></div>
 
-			<div class="coords_hor coords cell">e</div>
+			<div class="coords flex_center_hor coords flex_center cell">e</div>
 			<div class="cell" id="40"></div>
 			<div class="cell" id="41"></div>
 			<div class="cell" id="42"></div>
@@ -76,7 +76,7 @@
 			<div class="cell" id="45"></div>
 			<div class="cell" id="46"></div>
 
-			<div class="coords_hor coords cell">f</div>
+			<div class="coords flex_center_hor coords flex_center cell">f</div>
 			<div class="cell" id="50"></div>
 			<div class="cell" id="51"></div>
 			<div class="cell" id="52"></div>
@@ -85,7 +85,7 @@
 			<div class="cell" id="55"></div>
 			<div class="cell" id="56"></div>
 
-			<div class="coords_hor coords cell">g</div>
+			<div class="coords flex_center_hor coords flex_center cell">g</div>
 			<div class="cell" id="60"></div>
 			<div class="cell" id="61"></div>
 			<div class="cell" id="62"></div>
@@ -93,6 +93,19 @@
 			<div class="cell" id="64"></div>
 			<div class="cell" id="65"></div>
 			<div class="cell" id="66"></div>
+		</div>
+	</div>
+	<div class="modal__wrap flex_center">
+		<div class="modal__inner flex_center">
+			<p class="modal__txt">
+				Перед вами игра типа "Морской бой", вводить коррдинаты можно как с клавиатуры, так и нажимать непосредственно на
+				клетки с координатами.
+			</p>
+			<p class="modal__txt">
+				На поле 4 корабля длиной 3 клетки, в клетке "флот:" актуальная информация об
+				оставшихся кораблях
+			</p>
+			<button class="modal__button">Понятно</button>
 		</div>
 	</div>
 	<script src="./script.js"></script>
