@@ -137,6 +137,16 @@ form input {
 	font-size: 16px;
 }
 
+@media (min-width: 700px) {
+	#messageArea {
+		line-height: 34px;
+	}
+
+	#guessInput {
+		width: 100px;
+	}
+}
+
 @media (max-width: 700px) {
 	#guessInput {
 		padding: 10px 2px;
