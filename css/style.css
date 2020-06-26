@@ -70,6 +70,10 @@
 	background-color: rgba(82, 175, 19, 0.5);
 }
 
+.modal__button:focus {
+	background-color: rgba(82, 175, 19, 0.8);
+}
+
 @media (max-width: 700px) {
 	.body {
 		padding: 0 5px;
@@ -213,6 +217,7 @@ form input {
 }
 
 .coords {
+	background-color: unset;
 	color: rgb(82, 175, 19);
 }
 
